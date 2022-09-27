@@ -4,13 +4,15 @@
   "description": "A boilerplate project",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "dotenv": "^8.2.0",
     "express": "^4.12.4",
-    "mongoose": "^5.11.15"
+    "mongoose": "^5.11.15",
+    "nodemon": "^2.0.20"
   },
   "repository": {
     "type": "git",
