@@ -38,18 +38,23 @@ const createAndSavePerson = (done) => {
   });
 };
 
-const createManyPeople = async (arrayOfPeople, done) => {
-  const { name, age, favoriteFoods } = arrayOfPeoplele;
-  const data = await Person.create({ name, age, favoriteFoods });
-  done(null, data);
+const createManyPeople = (arrayOfPeople, done) => {
+  Person.create(arrayOfPeople, (err, people) => {
+    if (err) return console.log(err);
+    done(null, people);
+  });
 };
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  Person.find({ name: personName })
+    .then((res) => done(null, res))
+    .catch((err) => console.log(err));
 };
 
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({ favoriteFoods: food })
+    .then((res) => done(null, res))
+    .catch((e) => console.log(e));
 };
 
 const findPersonById = (personId, done) => {
